@@ -15,6 +15,7 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				Component: Home,
+				loader: () => fetch("phones.json"),
 			},
 			{
 				path: "/favorites",
