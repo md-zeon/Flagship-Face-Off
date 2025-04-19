@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
+import { MdBookmarkAdd, MdShoppingCart } from "react-icons/md";
 
 const Navbar = () => {
 	return (
@@ -31,23 +32,38 @@ const Navbar = () => {
 						tabIndex={0}
 						className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'
 					>
-						<li>
-							<a>Item 1</a>
-						</li>
-						<li>
-							<a>Parent</a>
-							<ul className='p-2'>
-								<li>
-									<a>Submenu 1</a>
-								</li>
-								<li>
-									<a>Submenu 2</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a>Item 3</a>
-						</li>
+					<li>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/'
+						>
+							Home
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/about'
+						>
+							About
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/cart'
+						>
+							<MdShoppingCart size={20} />
+						</NavLink>
+					</li>
+					<li>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/favorites'
+						>
+							<MdBookmarkAdd size={20} />
+						</NavLink>
+					</li>
 					</ul>
 				</div>
 				<Link
@@ -60,16 +76,36 @@ const Navbar = () => {
 			<div className='navbar-end hidden lg:flex'>
 				<ul className='menu menu-horizontal px-1'>
 					<li>
-						<NavLink className={({isActive}) => isActive ? "text-indigo-600 underline" : ""} to='/'>Home</NavLink>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/'
+						>
+							Home
+						</NavLink>
 					</li>
 					<li>
-						<NavLink className={({isActive}) => isActive ? "text-indigo-600 underline" : ""} to='/about'>About</NavLink>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/about'
+						>
+							About
+						</NavLink>
 					</li>
 					<li>
-						<NavLink className={({isActive}) => isActive ? "text-indigo-600 underline" : ""} to='/cart'>Cart</NavLink>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/cart'
+						>
+							<MdShoppingCart size={20} />
+						</NavLink>
 					</li>
 					<li>
-						<NavLink className={({isActive}) => isActive ? "text-indigo-600 underline" : ""} to='/favorites'>Favorite</NavLink>
+						<NavLink
+							className={({ isActive }) => (isActive ? "text-indigo-600 underline" : "")}
+							to='/favorites'
+						>
+							<MdBookmarkAdd size={20} />
+						</NavLink>
 					</li>
 				</ul>
 			</div>
