@@ -16,10 +16,10 @@ const PhoneDetails = () => {
 		addFavorite(singlePhone);
 	};
 	const handleCart = () => {
-        // Save To Local Storage
+		// Save To Local Storage
 		addToCart(singlePhone);
-        //  Update State for instant ui change
-        setCart(getCart());
+		//  Update State for instant ui change
+		setCart(getCart());
 	};
 
 	return (
@@ -44,7 +44,48 @@ const PhoneDetails = () => {
 				</div>
 			</div>
 			{/* Details */}
-			<div></div>
+			<div className='space-y-4'>
+				<h2 className='font-thin text-4xl'>Details: </h2>
+				<p>
+					<span className='font-bold'>Brand:</span> {brand}
+				</p>
+				<p>
+					<span className='font-bold'>Model:</span> {model}
+				</p>
+				{/* Storage Info */}
+				<div className='flex gap-1'>
+					<p className='font-bold'>Storage:</p>
+					<div>
+						{storage.map((item) => {
+							return (
+								<div key={item}>
+									<div>{item}</div>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+				{/* Price info */}
+				<div className='flex gap-1'>
+					<p className='font-bold'>Price:</p>
+					<div>
+						{Object.entries(price).map(([storage, price]) => (
+							<p
+								key={storage}
+								className=''
+							>
+								<span>{storage}:</span> <span>{price}</span>
+							</p>
+						))}
+					</div>
+				</div>
+				<p>
+					<span className='font-bold'>Camera Info:</span> {camera_info}
+				</p>
+				<p>
+					<span className='font-bold'>Description:</span> {description}
+				</p>
+			</div>
 		</div>
 	);
 };
