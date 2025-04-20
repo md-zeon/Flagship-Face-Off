@@ -99,7 +99,7 @@ const Navbar = () => {
 							to='/cart'
 						>
 							<MdShoppingCart size={20} />
-							<p>{cart.length}</p>
+							<p className="absolute -top-1 right-1.5 text-xs font-semibold bg-black text-white px-1 rounded-full">{cart.length}</p>
 						</NavLink>
 					</li>
 					<li>

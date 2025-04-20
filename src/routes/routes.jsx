@@ -5,6 +5,7 @@ import About from "../pages/About";
 import Favorites from "../pages/Favorites";
 import PhoneDetails from "../pages/PhoneDetails";
 import ErrorPage from "../pages/ErrorPage";
+import Cart from "../pages/Cart";
 
 const router = createBrowserRouter([
 	{
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
 				hydrateFallbackElement: <p>Loading... please Wait...</p>,
 				loader: () => fetch("../phones.json"),
 				Component: PhoneDetails,
+			},
+			{
+				path: "/cart",
+				Component: Cart,
 			},
 		],
 	},

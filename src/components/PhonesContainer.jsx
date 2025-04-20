@@ -15,23 +15,28 @@ const PhonesContainer = ({ phones }) => {
 	}, [phones, showAll]);
 
 	return (
-		<div className='py-12'>
-			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8'>
-				{displayPhones.map((phone) => (
-					<PhoneCard
-						key={phone.id}
-						phone={phone}
-					></PhoneCard>
-				))}
+		<>
+			{displayPhones.length === 0 && <p className='text-center text-2xl md:text-4xl font-thin text-gray-900'>Phone not found</p>}
+			<div className='py-12'>
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8'>
+					{displayPhones.map((phone) => (
+						<PhoneCard
+							key={phone.id}
+							phone={phone}
+						></PhoneCard>
+					))}
+				</div>
+				{displayPhones.length > 1 && (
+					<Button
+						label={showAll ? "Show Less" : "Show More"}
+						onClick={() => {
+							setShowAll(!showAll);
+							if (showAll) window.scrollTo(0, 400);
+						}}
+					/>
+				)}
 			</div>
-			<Button
-				label={showAll ? "Show Less" : "Show More"}
-				onClick={() => {
-					setShowAll(!showAll);
-					if (showAll) window.scrollTo(0, 400);
-				}}
-			/>
-		</div>
+		</>
 	);
 };
 
